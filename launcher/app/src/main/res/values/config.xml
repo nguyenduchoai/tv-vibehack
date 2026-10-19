@@ -24,6 +24,9 @@
     <!-- Show the Inputs pill (HDMI / AV / Live TV). Turn off on sticks and boxes without inputs. -->
     <bool name="show_inputs">false</bool>
 
+    <!-- Grid rows left visible under the dock on the home screen. 0 = dock sits at the very bottom. -->
+    <integer name="rows_below_dock">1</integer>
+
     <!-- Tiles per row in the grid; the dock always has this many slots. -->
     <integer name="columns">4</integer>
 </resources>

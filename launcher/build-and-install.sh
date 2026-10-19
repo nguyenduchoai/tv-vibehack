@@ -21,4 +21,12 @@ printf '%s\n' \
   "cmd package set-home-activity --user 0 com.gathin.tvhome/.MainActivity" \
   "pm disable-user --user 0 $STOCK_LAUNCHER" \
   | "$PY" -I ../tools/tv.py --batch
+# Remotes whose Home button sends KEYCODE_ALL_APPS (Xiaomi) need HomeKeyService. Android turns
+# accessibility services off when their app is reinstalled, so re-enable it after every install.
+if [ "${HOME_KEY_SERVICE:-0}" = 1 ]; then
+  printf '%s\n' \
+    "settings put secure enabled_accessibility_services com.gathin.tvhome/.HomeKeyService" \
+    "settings put secure accessibility_enabled 1" \
+    | "$PY" -I ../tools/tv.py --batch
+fi
 echo "Installed. Press Home on the remote to see it."
