@@ -10,7 +10,6 @@
         <item>com.google.android.youtube.tv</item>
         <item>com.netflix.ninja</item>
         <item>net.fptplay.ottbox</item>
-        <item>vn.vtv.vtvgotv</item>
     </string-array>
 
     <!-- Apps never shown as tiles (e.g. the Live TV app, which the Inputs menu already covers). -->
