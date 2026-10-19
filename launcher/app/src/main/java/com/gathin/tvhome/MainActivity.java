@@ -160,7 +160,10 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
 
         View btnInputs = findViewById(R.id.btnInputs);
         View btnSettings = findViewById(R.id.btnSettings);
+        boolean showInputs = getResources().getBoolean(R.bool.show_inputs);
+        btnInputs.setVisibility(showInputs ? View.VISIBLE : View.GONE);
         btnInputs.setOnClickListener(v -> showInputs());
+        int firstPill = showInputs ? R.id.btnInputs : R.id.btnWifi;
         btnWifi.setOnClickListener(v -> open(new Intent(Settings.ACTION_WIFI_SETTINGS)));
         btnSettings.setOnClickListener(v -> open(new Intent(Settings.ACTION_SETTINGS)));
 
@@ -169,7 +172,7 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
         View.OnKeyListener pillKeys = (v, keyCode, event) -> {
             if (event.getAction() != KeyEvent.ACTION_DOWN) return false;
             if (keyCode == KeyEvent.KEYCODE_DPAD_UP) return true;
-            if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT && v.getId() == R.id.btnInputs) return true;
+            if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT && v.getId() == firstPill) return true;
             return keyCode == KeyEvent.KEYCODE_DPAD_RIGHT && v.getId() == R.id.btnSettings;
         };
         btnInputs.setOnKeyListener(pillKeys);

@@ -20,4 +20,6 @@
     <string name="cant_open">Can\'t open %1$s</string>
     <string name="date_format">EEEE  d MMMM</string>
     <string name="dream_name">Clock</string>
+    <string name="home_key_name">Home button</string>
+    <string name="home_key_description">Makes the remote\'s Home button open this launcher.</string>
 </resources>

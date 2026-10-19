@@ -32,6 +32,21 @@
             </intent-filter>
         </activity>
 
+        <!-- Home button for remotes that send KEYCODE_ALL_APPS (Xiaomi). Enabled over adb by
+             build-and-install.sh; see HomeKeyService. -->
+        <service
+            android:name=".HomeKeyService"
+            android:label="@string/home_key_name"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/home_key_service" />
+        </service>
+
         <!-- Screensaver: pick it in Settings, or `settings put secure screensaver_components
              com.gathin.tvhome/.ClockDream` over adb. -->
         <service

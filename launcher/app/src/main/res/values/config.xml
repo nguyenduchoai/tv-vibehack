@@ -7,20 +7,22 @@
 
     <!-- Apps pinned to the dock row at the bottom, in this order. Missing apps are skipped. -->
     <string-array name="dock_apps">
-        <item>com.netflix.ninja</item>
-        <item>com.amazon.amazonvideo.livingroom</item>
         <item>com.google.android.youtube.tv</item>
-        <item>in.startv.hotstar</item>
+        <item>com.netflix.ninja</item>
+        <item>net.fptplay.ottbox</item>
+        <item>vn.vtv.vtvgotv</item>
     </string-array>
 
     <!-- Apps never shown as tiles (e.g. the Live TV app, which the Inputs menu already covers). -->
     <string-array name="hidden_apps">
-        <item>com.mediatek.wwtv.tvcenter</item>
-        <item>com.mitv.gallery</item>
+        <item>com.google.android.tv</item>
     </string-array>
 
     <!-- The TV's Live TV / tuner app, offered at the end of the Inputs menu. Leave empty to omit. -->
-    <string name="live_tv_package" translatable="false">com.mediatek.wwtv.tvcenter</string>
+    <string name="live_tv_package" translatable="false"></string>
+
+    <!-- Show the Inputs pill (HDMI / AV / Live TV). Turn off on sticks and boxes without inputs. -->
+    <bool name="show_inputs">false</bool>
 
     <!-- Tiles per row in the grid; the dock always has this many slots. -->
     <integer name="columns">4</integer>
