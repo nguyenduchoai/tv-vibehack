@@ -15,8 +15,11 @@
 #   so always pass HOME_KEY_SERVICE=1.
 #   `input keyevent 284` over adb skips the accessibility filter; test with the real remote.
 # - No HDMI/AV inputs: set show_inputs to false in launcher config.xml.
-# - Kept on this set: voice assistant (katniss/pumpkin), Chromecast (mediashell),
-#   Mi Cast (com.mitv.milinkservice) and firmware updates (com.xiaomi.mitv.updateservice).
+# - Kept on this set: voice assistant (katniss/pumpkin), Chromecast (mediashell) and firmware
+#   updates (com.xiaomi.mitv.updateservice). Mi Cast is off because Chromecast + airplay/ cover casting.
+# - Before disabling the screensavers, switch to the launcher's clock:
+#     settings put secure screensaver_components com.gathin.tvhome/.ClockDream
+#     settings put secure screensaver_default_component com.gathin.tvhome/.ClockDream
 
 # Xiaomi + Google telemetry
 com.miui.tv.analytics
@@ -38,3 +41,18 @@ com.nousguide.android.rbtv                  # Red Bull TV
 com.google.android.apps.tachyon             # Google Duo
 com.google.android.play.games
 com.tcl.browser
+
+# Not needed on a stick without tuner, printer or screen reader
+com.google.android.tv                       # Live Channels; no tuner on this stick
+com.mitv.milinkservice                      # Mi Cast (Miracast/MiLink); Chromecast + AirPlay replace it
+com.xiaomo.tv.milegal                       # Xiaomi legal/terms viewer (sic, "xiaomo")
+com.android.printspooler
+com.google.android.marvin.talkback          # re-enable for a screen reader
+com.google.android.tts                      # text-to-speech, only used by TalkBack here
+com.google.android.syncadapters.calendar
+com.google.android.syncadapters.contacts
+
+# Screensavers (replaced by the launcher's ClockDream, see notes above)
+com.google.android.backdrop                 # Google ambient mode
+com.mitv.dream
+com.android.dreams.basic
